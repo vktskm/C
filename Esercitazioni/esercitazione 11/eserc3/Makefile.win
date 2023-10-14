@@ -1,0 +1,42 @@
+# Project: Progetto1
+# Makefile created by Dev-C++ 4.9.9.2
+
+CPP  = g++.exe
+CC   = gcc.exe
+WINDRES = windres.exe
+RES  = 
+OBJ  = main.o Persona.o Attore.o Cliente.o Film.o $(RES)
+LINKOBJ  = main.o Persona.o Attore.o Cliente.o Film.o $(RES)
+LIBS =  -L"C:/Dev-Cpp/lib"  
+INCS =  -I"C:/Dev-Cpp/include" 
+CXXINCS =  -I"C:/Dev-Cpp/lib/gcc/mingw32/3.4.2/include"  -I"C:/Dev-Cpp/include/c++/3.4.2/backward"  -I"C:/Dev-Cpp/include/c++/3.4.2/mingw32"  -I"C:/Dev-Cpp/include/c++/3.4.2"  -I"C:/Dev-Cpp/include" 
+BIN  = Progetto1.exe
+CXXFLAGS = $(CXXINCS)  
+CFLAGS = $(INCS)  
+RM = rm -f
+
+.PHONY: all all-before all-after clean clean-custom
+
+all: all-before Progetto1.exe all-after
+
+
+clean: clean-custom
+	${RM} $(OBJ) $(BIN)
+
+$(BIN): $(OBJ)
+	$(CPP) $(LINKOBJ) -o "Progetto1.exe" $(LIBS)
+
+main.o: main.cpp C:/Dev-Cpp/include/c++/3.4.2/cstdlib   C:/Dev-Cpp/include/c++/3.4.2/iostream Film.h Attore.h Persona.h
+	$(CPP) -c main.cpp -o main.o $(CXXFLAGS)
+
+Persona.o: Persona.cpp Persona.h C:/Dev-Cpp/include/c++/3.4.2/string   C:/Dev-Cpp/include/c++/3.4.2/iostream
+	$(CPP) -c Persona.cpp -o Persona.o $(CXXFLAGS)
+
+Attore.o: Attore.cpp Attore.h Persona.h   C:/Dev-Cpp/include/c++/3.4.2/string   C:/Dev-Cpp/include/c++/3.4.2/iostream
+	$(CPP) -c Attore.cpp -o Attore.o $(CXXFLAGS)
+
+Cliente.o: Cliente.cpp Cliente.h Persona.h   C:/Dev-Cpp/include/c++/3.4.2/string   C:/Dev-Cpp/include/c++/3.4.2/iostream
+	$(CPP) -c Cliente.cpp -o Cliente.o $(CXXFLAGS)
+
+Film.o: Film.cpp Film.h C:/Dev-Cpp/include/c++/3.4.2/string Attore.h   Persona.h C:/Dev-Cpp/include/c++/3.4.2/iostream
+	$(CPP) -c Film.cpp -o Film.o $(CXXFLAGS)

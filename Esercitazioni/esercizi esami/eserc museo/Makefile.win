@@ -1,0 +1,42 @@
+# Project: Progetto1
+# Makefile created by Dev-C++ 4.9.9.2
+
+CPP  = g++.exe
+CC   = gcc.exe
+WINDRES = windres.exe
+RES  = 
+OBJ  = main.o Dipinto.o Museo.o OperaDarte.o Scultura.o $(RES)
+LINKOBJ  = main.o Dipinto.o Museo.o OperaDarte.o Scultura.o $(RES)
+LIBS =  -L"C:/Dev-Cpp/lib"  
+INCS =  -I"C:/Dev-Cpp/include" 
+CXXINCS =  -I"C:/Dev-Cpp/lib/gcc/mingw32/3.4.2/include"  -I"C:/Dev-Cpp/include/c++/3.4.2/backward"  -I"C:/Dev-Cpp/include/c++/3.4.2/mingw32"  -I"C:/Dev-Cpp/include/c++/3.4.2"  -I"C:/Dev-Cpp/include" 
+BIN  = Progetto1.exe
+CXXFLAGS = $(CXXINCS)  
+CFLAGS = $(INCS)  
+RM = rm -f
+
+.PHONY: all all-before all-after clean clean-custom
+
+all: all-before Progetto1.exe all-after
+
+
+clean: clean-custom
+	${RM} $(OBJ) $(BIN)
+
+$(BIN): $(OBJ)
+	$(CPP) $(LINKOBJ) -o "Progetto1.exe" $(LIBS)
+
+main.o: main.cpp C:/Dev-Cpp/include/c++/3.4.2/cstdlib   C:/Dev-Cpp/include/c++/3.4.2/iostream Museo.h OperaDarte.h Dipinto.h   Scultura.h
+	$(CPP) -c main.cpp -o main.o $(CXXFLAGS)
+
+Dipinto.o: Dipinto.cpp Dipinto.h OperaDarte.h   C:/Dev-Cpp/include/c++/3.4.2/string   C:/Dev-Cpp/include/c++/3.4.2/iostream
+	$(CPP) -c Dipinto.cpp -o Dipinto.o $(CXXFLAGS)
+
+Museo.o: Museo.cpp Museo.h C:/Dev-Cpp/include/c++/3.4.2/string   OperaDarte.h C:/Dev-Cpp/include/c++/3.4.2/iostream
+	$(CPP) -c Museo.cpp -o Museo.o $(CXXFLAGS)
+
+OperaDarte.o: OperaDarte.cpp OperaDarte.h   C:/Dev-Cpp/include/c++/3.4.2/string   C:/Dev-Cpp/include/c++/3.4.2/iostream
+	$(CPP) -c OperaDarte.cpp -o OperaDarte.o $(CXXFLAGS)
+
+Scultura.o: Scultura.cpp Scultura.h C:/Dev-Cpp/include/c++/3.4.2/iostream   OperaDarte.h
+	$(CPP) -c Scultura.cpp -o Scultura.o $(CXXFLAGS)

@@ -1,0 +1,28 @@
+dubbio 1
+la funzione operator<< è esterna ad ogni classe che  ho definito nella mia gerarchia; la gerarchia è la seguente:
+
+     Persona
+     /    \
+Docente   Studente
+            \
+           StudenteSpecialista
+
+
+eppure la funzione operator<< che lavora su StudenteSpecialista esegue le stesse operazioni
+della funzione operator<< di Studente e di Persona; io ho ricopiato le istruzioni 
+di operator<<, però pensavo che il meccanismo dell'ereditarietà potrebbe essere utile in questo caso. Ma le funzioni operator<< sono esterne alle classi, quindi non posso applicare l'ereditarietà per gli operator<<. 
+Dunque: esiste un modo per applicare l'ereditarietà alla funzione operator<< che mi eviti di riscrivere codice già scritto? 
+
+Nota: ho anche provato a richiamare dall'interno di "ostream& operator<<(ostream& o,const Docente& d)"
+la funzione "ostream& operator<<(ostream& o,const Persona& p)", ma non so quale argomento
+passare per Persona.
+
+
+
+dubbio 2
+nel main
+quando stampo a video gli iscritti all'esame, nel momento in cui devo stampare i dati relativi allo studente specialista non mi viene stampata la laurea in possesso (ingegneria nucleare nell'esempio). Il metodo Esame::print() mi stampa gli studenti a partire da un puntatore, ma perchè il puntatore a studenteSpecialista non richiama la versione di operator<< con StudenteSpecialista?
+
+
+Ho pensato che la soluzione ad entrambi i dubbi sarebbe quella di delegare tutti i compiti svolti dall'operator<< alla funzione print di ogni singola classe, sfruttando in tal modo tanto l'ereditarietà( risolvendo il dubbio 1 della riscrittura di codice uguale) quanto
+il polimorfismo(risolvendo il dubbio 2).

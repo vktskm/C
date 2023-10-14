@@ -1,0 +1,2 @@
+Non riesco a capire perchè la classe  fstream non derivi da ofstream e da ifstream visto che fstream gestisce files generici legandoli a stream.
+In pratica non vedo l'utilita di avere a disposizione tre classi diverse e indipendenti tra loro per gestire files. fstream puo eseguire tutte le operazioni di ofstreame di ifstream; quindi dove sta la necessità di avere una classe in più (cioè fstream)?

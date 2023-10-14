@@ -1,0 +1,6 @@
+è possibile mettere nel costruttore "polinomio" degli argomenti di default di tipo "monomio"?
+se si, come si mettono? ho provato scrivendo:
+
+Polinomio(Monomio m0,Monomio m1(),Monomio m2())
+
+ma non funziona
