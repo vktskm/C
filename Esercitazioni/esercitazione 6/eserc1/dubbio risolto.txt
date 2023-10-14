@@ -1,0 +1,30 @@
+nella funzione:
+
+Complex& Complex::print(){
+                  cout<<"("<<Complex::re<<", "<<Complex::im<<")\n";
+                  return *this;
+                  }
+
+ho provato a mettere const:
+
+Complex& Complex::print()const{<-----------------
+                  cout<<"("<<Complex::re<<", "<<Complex::im<<")\n";
+                  return *this;
+                  }
+
+e ho messo pure const nel relativo prototipo del file Complex.h.
+
+Ciò mi dà un errore in compilazione, perchè?
+
+
+Risposta:
+
+perchè se aggiungi const allora la funzione deve restituire il riferimento di un oggetto che sia const.
+Di conseguenza il metodo sarà cosi: 
+
+const Complex& Complex::print()const{
+                  cout<<"("<<Complex::re<<", "<<Complex::im<<")\n";
+                  return *this;
+                  }
+
+Devi fare attenzione ad una cosa però: non dimenticare che in questo caso cio che sara ritornato sara un const, dunque lavorerai su oggetti considerati const. Al limite puoi creare delle versioni delle stesse funzioni che pero non siano const.
